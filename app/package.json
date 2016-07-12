@@ -1,0 +1,22 @@
+{
+  "name": "documentexplorer",
+  "version": "0.0.1",
+  "description": "Microsemi Document Explorer",
+  "homepage": "https://github.com/sswayney/docexp",
+  "main": "main.js",
+  "author": "Shane Swayney & Matt Jones",
+  "license": "ISC",
+  "electronVersion": "1.0.0",
+  "dependencies": {
+    "electron-is-dev": "0.1.1",
+    "electron-debug": "^1",
+    "devtron": "^1.1",
+    "lodash": "^4"
+  },
+  "config": {
+    "url": "index.html",
+    "update": {
+      "url": "https://docexp.herokuapp.com"
+    }
+  }
+}
