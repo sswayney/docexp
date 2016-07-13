@@ -4,7 +4,7 @@
   "description": "Microsemi Document Explorer",
   "homepage": "https://github.com/sswayney/docexp",
   "main": "main.js",
-  "author": "Shane Swayney & Matt Jones",
+  "author": "Shane Swayney and Matt Jones",
   "license": "ISC",
   "electronVersion": "1.0.0",
   "dependencies": {
