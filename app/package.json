@@ -1,6 +1,6 @@
 {
   "name": "DocumentExplorer",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Microsemi Document Explorer",
   "homepage": "https://github.com/sswayney/docexp",
   "main": "main.js",

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/app/css/yeti.bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/app/css/splash.css">
+    <title>Microsemi Doc Explorer</title>
+</head>
+<body class="text-center">
+<h1 class="splash-logo">Doc Explorer</h1>
+<h4 id="splashStatus" class="splash-status">Loading</h4>
+<div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+</div>
+
+<!--<h4 class="splash-company"><img src="/app/img/favicon.ico" class="splash-mcss-logo">Microsemi</h4>-->
+<img src="/app/img/logo.jpg" class="splash-mcss-logo-full">
+<div class="fold"></div>
+
+
+<script>
+
+    var gui = require('nw.gui');
+    var win = gui.Window.get();
+
+    document.getElementById("splashStatus").innerText = win.message;
+</script>
+
+
+</body>
+</html>

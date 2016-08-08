@@ -12,6 +12,7 @@ const path = require('path')
 const pjson = require('./package.json')
 const _ = require('lodash')
 
+
 // Use system log facility, should work on Windows too
 require('./lib/log')(pjson.productName || 'SkelEktron')
 
