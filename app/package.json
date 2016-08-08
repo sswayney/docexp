@@ -1,10 +1,10 @@
 {
-  "name": "documentexplorer",
-  "version": "0.0.1",
+  "name": "DocumentExplorer",
+  "version": "0.0.3",
   "description": "Microsemi Document Explorer",
   "homepage": "https://github.com/sswayney/docexp",
   "main": "main.js",
-  "author": "Shane Swayney and Matt Jones",
+  "author": "Microsemi",
   "license": "ISC",
   "electronVersion": "1.0.0",
   "dependencies": {
