@@ -3,7 +3,7 @@
  */
 'use strict';
 
-docApp.controller('NavbarController', function NavbarController($scope, $location) {
+docApp.controller('NavbarController', function NavbarController($scope, $location, TokenService) {
 
     $scope.routeIs = function(routeName) {
         return $location.path() === routeName;
@@ -11,6 +11,10 @@ docApp.controller('NavbarController', function NavbarController($scope, $locatio
 
     $scope.close = function () {
         window.close();
+    }
+
+    $scope.isLoggedIn = function () {
+        return TokenService.IsAuthenticated();
     }
 
 });

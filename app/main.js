@@ -14,7 +14,7 @@ const _ = require('lodash')
 
 
 // Use system log facility, should work on Windows too
-require('./lib/log')(pjson.productName || 'SkelEktron')
+require('./lib/log')(pjson.productName || 'DocumentExplorer')
 
 // Manage unhandled exceptions as early as possible
 process.on('uncaughtException', (e) => {
@@ -31,6 +31,7 @@ try {
     console.warn('No config file loaded, using defaults')
 }
 
+//check if we are in development
 const isDev = (require('electron-is-dev') || pjson.config.debug)
 global.appSettings = pjson.config
 
@@ -54,7 +55,7 @@ let mainWindow
 // Other windows we may need
 let infoWindow = null
 
-app.setName(pjson.productName || 'SkelEktron')
+app.setName(pjson.productName || 'Document Explorer')
 
 function initialize () {
     var shouldQuit = makeSingleInstance()
@@ -76,7 +77,7 @@ function initialize () {
             'height': 768,
             'title': app.getName(),
             'webPreferences': {
-                'nodeIntegration': pjson.config.nodeIntegration || true, // Disabling node integration allows to use libraries such as jQuery/React, etc
+                'nodeIntegration': true, // Disabling node integration allows to use libraries such as jQuery/React, etc
                 'preload': path.resolve(path.join(__dirname, 'preload.js'))
             }
         })

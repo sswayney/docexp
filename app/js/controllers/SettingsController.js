@@ -3,11 +3,11 @@
  */
 'use strict';
 
-docApp.controller('SettingsController', function SettingsController($scope, $http, alertService) {
+docApp.controller('SettingsController', function SettingsController($scope, $http, alertService, TokenService) {
 
-    var os = require("os");
-    var fs = require("fs");
-    var shell = require('electron').shell;
+    var os = window.nodeRequire("os");
+    var fs = window.nodeRequire("fs");
+    var shell = window.nodeRequire('electron').shell;
 
     $scope.workingDir = os.homedir() + '\\Microsemi Document Explorer';
     $scope.testFile = 'MDX.txt';
@@ -19,6 +19,16 @@ docApp.controller('SettingsController', function SettingsController($scope, $htt
 
     $scope.showDevTools = function () {
         // gui.Window.get().showDevTools();
+    };
+
+    //Auth Stuff
+    $scope.loggedIn = function () {
+
+        alert(TokenService.IsAuthenticated());
+    };
+
+    $scope.getMyToken = function () {
+        alert(TokenService.GetToken());
     };
 
 
@@ -166,7 +176,7 @@ docApp.controller('SettingsController', function SettingsController($scope, $htt
     
 
     $scope.testApi = function () {
-        $http.get("https://api.microsemi.com/Location/countries").then(function(response) {
+        $http.get("https://api.microsemi.com/productfamilies").then(function(response) {
             $scope.listData = response.data.data;
         });
     }

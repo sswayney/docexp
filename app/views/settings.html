@@ -40,9 +40,12 @@
 
     </div>
     <div class="col-md-4">
-        <h3>Debuging</h3>
+        <h3>Auth</h3>
         <div class="btn-group">
-            <button type="button" ng-click="showDevTools()" class="btn btn-default">Show Console</button>
+            <button type="button" ng-click="loggedIn()" class="btn btn-default">Am I logged in?</button>
+        </div>
+        <div class="btn-group">
+            <button type="button" ng-click="getMyToken()" class="btn btn-default">Whats my token?</button>
         </div>
     </div>
 
@@ -53,7 +56,7 @@
           <button type="button" class="btn btn-default" ng-click="testApi()">Test Get List</button>
           <ul>
               <li ng-repeat="x in listData">
-                  {{x.Name}}
+                  {{x.ProductFamilyName}}
               </li>
           </ul>
 

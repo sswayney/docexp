@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
 
+    <script>
+        require('electron-cookies');
+        //Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like module, exports, require. This causes problems for some libraries since they want to insert the symbols with the same names.
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+    </script>
 
     <!--<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.css">-->
     <!--<link rel="stylesheet" type="text/css" href="css/paper.bootstrap.min.css">-->
@@ -51,10 +59,11 @@
                         <ul class="nav navbar-nav">
                             <li ng-class="{active: routeIs('/search')}"><a href="#/search">Search<span class="sr-only">(current)</span></a></li>
                             <li ng-class="{active: routeIs('/documents')}"><a href="#/documents">My Documents</a></li>
-                            <li ng-class="{active: routeIs('/login')}"><a href="#/login">Login</a></li>
+                            <!--<li ng-class="{active: routeIs('/login')}"><a href="#/login">Login</a></li>-->
 
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#/login">Logged In : {{isLoggedIn()}}</a></li>
                             <li ng-class="{active: routeIs('/settings')}"><a href="#/settings"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
@@ -79,12 +88,17 @@
     </div>
 </div>
 <!--angular stuff-->
-<script src="./bower_components/angular/angular.min.js"></script>
-<script src="./bower_components/angular-route/angular-route.min.js"></script>
-<script src="./bower_components/angular-messages/angular-messages.min.js"></script>
-<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="./bower_components/angular-touch/angular-touch.min.js"></script>
-<script src="./bower_components/ui-bootstrap/src/alert/alert.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="bower_components/ui-bootstrap/src/alert/alert.js"></script>
+
+<script src="./js/services/angular-cookies.js"></script>
+<script src="bower_components/query-string/query-string.js"></script>
+<script src="./js/services/angular-oauth2.js"></script>
+
 
 
 
@@ -94,13 +108,15 @@
 <script src="./js/app.js"></script>
 
 <script src="./js/services/AlertService.js"></script>
+<script src="./js/services/TokenService.js"></script>
+
 
 <script src="./js/controllers/StartController.js"></script>
-<script src="js/controllers/NavbarController.js"></script>
-<script src="js/controllers/MyDocsController.js"></script>
-<script src="js/controllers/SearchController.js"></script>
-<script src="js/controllers/SettingsController.js"></script>
-<script src="js/controllers/LoginController.js"></script>
+<script src="./js/controllers/NavbarController.js"></script>
+<script src="./js/controllers/MyDocsController.js"></script>
+<script src="./js/controllers/SearchController.js"></script>
+<script src="./js/controllers/SettingsController.js"></script>
+<script src="./js/controllers/LoginController.js"></script>
 
 </body>
 </html>
