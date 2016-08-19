@@ -1,7 +1,7 @@
 
 //Create Module
-var docApp = angular.module('docApp', ['alertServices','ngTouch','ngAnimate','ngRoute','ngMessages','ui.bootstrap.alert',
-                                        'tokenService','angular-oauth2']);
+var docApp = angular.module('docApp', ['alertServices','ngTouch','ngAnimate','ngRoute','ngMessages','ui.bootstrap.alert','docApp.Config',
+                                        'tokenService','angular-oauth2','restangular', 'cdnRepository', 'blobRepository', 'webStorageService']);
 
 
 //Define routes
@@ -79,3 +79,8 @@ docApp.run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAut
         //     return $window.location.href = '/login?error_reason=' + rejection.data.error;
         // });
     }]);
+
+//Restangular
+docApp.run(function(Restangular,config) {
+    Restangular.setBaseUrl(config.WebStore.URL);
+});

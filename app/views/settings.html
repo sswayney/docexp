@@ -33,7 +33,7 @@
         </div>
         <div class="btn-group">
             <button type="button" class="btn btn-default" ng-click="testWriteFile()">Create File</button>
-            <button type="button" class="btn btn-default" ng-click="testReadFile()" >Read File</button>
+            <button type="button" class="btn btn-default" ng-click="testReadFile()">Read File</button>
             <button type="button" class="btn btn-default" ng-click="testOpenFile()">Open File</button>
             <button type="button" class="btn btn-default" ng-click="testDeleteFile()">Delete File</button>
         </div>
@@ -47,18 +47,54 @@
         <div class="btn-group">
             <button type="button" ng-click="getMyToken()" class="btn btn-default">Whats my token?</button>
         </div>
+        <div class="btn-group">
+            <button type="button" ng-click="removeMyToken()" class="btn btn-default">Remove my token</button>
+        </div>
     </div>
 
 </div>
 <div class="row">
-      <div class="col-md-12">
-          <h3>API Connectivity</h3>
-          <button type="button" class="btn btn-default" ng-click="testApi()">Test Get List</button>
-          <ul>
-              <li ng-repeat="x in listData">
-                  {{x.ProductFamilyName}}
-              </li>
-          </ul>
+    <div class="col-md-12">
+        <h3>API Connectivity</h3>
+        <button type="button" class="btn btn-default" ng-click="testApi()">Test Get List</button>
+        <ul>
+            <li ng-repeat="x in listData">
+                {{x.ProductFamilyName}}
+            </li>
+        </ul>
 
-      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Storage</h3>
+        <h2>blob</h2>
+        <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" ng-click="blobGet()" type="button">Get Storage Directory</button>
+            </span>
+            <input class="form-control" type="text" ng-model="blogGetId">
+
+        </div>
+        {{blobGetResponse}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>CDN</h2>
+        <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" ng-click="getFileUrl()" type="button">Get CDN File</button>
+            </span>
+            <input class="form-control" type="text" ng-model="filePath">
+
+        </div>
+        {{cdnFileUrl}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Restangular</h3>
+        {{restAngularSettings}}
+    </div>
 </div>

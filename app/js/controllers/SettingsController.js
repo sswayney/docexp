@@ -3,7 +3,7 @@
  */
 'use strict';
 
-docApp.controller('SettingsController', function SettingsController($scope, $http, alertService, TokenService) {
+docApp.controller('SettingsController', function SettingsController($scope, $http, alertService, TokenService, Restangular, WebStorageService) {
 
     var os = window.nodeRequire("os");
     var fs = window.nodeRequire("fs");
@@ -12,6 +12,22 @@ docApp.controller('SettingsController', function SettingsController($scope, $htt
     $scope.workingDir = os.homedir() + '\\Microsemi Document Explorer';
     $scope.testFile = 'MDX.txt';
     $scope.listData = [];
+    $scope.blogGetId = "private/new/test";
+    $scope.blobGetResponse = "";
+
+    $scope.restAngularSettings = JSON.stringify(Restangular.configuration);
+
+    $scope.blobGet = function () {
+         WebStorageService.GetDirectory($scope.blogGetId, true, []).then(function (response){
+            $scope.blobGetResponse = response;
+         });
+    };
+
+    $scope.getFileUrl = function () {
+        WebStorageService.GetFileUrl($scope.filePath).then(function (response){
+            $scope.cdnFileUrl = response;
+        });
+    };
 
     var getFileURI = function () {
         return $scope.workingDir + '/' + $scope.testFile;
@@ -29,6 +45,10 @@ docApp.controller('SettingsController', function SettingsController($scope, $htt
 
     $scope.getMyToken = function () {
         alert(TokenService.GetToken());
+    };
+
+    $scope.removeMyToken = function () {
+        TokenService.RemoveToken();
     };
 
 
@@ -180,6 +200,7 @@ docApp.controller('SettingsController', function SettingsController($scope, $htt
             $scope.listData = response.data.data;
         });
     }
+
 
 
 

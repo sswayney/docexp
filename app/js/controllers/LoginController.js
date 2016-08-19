@@ -5,11 +5,10 @@
 
 docApp.controller('LoginController', function LoginController($scope, TokenService) {
 
-    $scope.userLogin = {"Username":"","Password":"","Scopes":"WebStoreUser"};
+    $scope.userLogin = {"Username":"","Password":"","Scopes":"WebStoreAdmin"};
 
     $scope.logIn = function () {
         TokenService.Authorize($scope.userLogin).then(function(){
-            alert("ok");
         })
     }
 

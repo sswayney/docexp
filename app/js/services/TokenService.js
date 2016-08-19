@@ -19,6 +19,10 @@
              */
             GetToken: function () {
                 return this.IsAuthenticated() ? OAuthToken.getToken().token_type + ' ' + OAuthToken.getToken().access_token : "no token set";
+            },
+
+            RemoveToken: function () {
+                return OAuthToken.removeToken();
             }
         };
     }]);
