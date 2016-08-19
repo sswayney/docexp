@@ -1,0 +1,36 @@
+{
+  "local": {
+    "config": {
+      "WebStore" : {"URL" : "http://localhost:2222/"}
+    }
+  },
+  "dev":{
+    "config": {
+      "WebStore" : {"URL" : "http://webstoredev.microsemi.net:8084"}
+    }
+  },
+  "staging":{
+    "config": {
+      "WebStore" : {"URL" : "https://api-stg.microsemi.com:8084"}
+    }
+  },
+  "prod":{
+    "config": {
+      "WebStore" : {"URL" : "https://api.microsemi.com"}
+    }
+  },
+  "all":{
+    "config": {
+      "WebStore" : {
+        "Resources" : {
+          "BlobStorage" : {
+            "Path" : "storage/blob"
+          },
+          "CDNStorage" : {
+            "Path" : "storage/cdn"
+          }
+        }
+      }
+    }
+  }
+}
